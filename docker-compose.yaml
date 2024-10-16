@@ -1,0 +1,26 @@
+services:
+  http-api-gateway:
+    build: ./http-api-gateway
+    ports: 
+      - 3000:3000
+    volumes:
+      - ./http-api-gateway/src:/app/src
+    command: pnpm start:dev
+  
+  users_microservice:
+    build: ./users-microservice
+    volumes: 
+      - ./users-microservice/src:/app/src
+    command: pnpm start:dev
+
+  payments_microservice:
+    build: ./payments-microservice
+    volumes:
+      - ./payments-microservice/src:/app/src
+    command: pnpm start:dev
+  
+  nats:
+    image: nats
+    ports:
+      - 4222:4222
+    
