@@ -2,7 +2,7 @@ services:
   http-api-gateway:
     build: ./http-api-gateway
     ports: 
-      - 3000:3000
+      - "3000:3000"
     volumes:
       - ./http-api-gateway/src:/app/src
     command: pnpm start:dev
